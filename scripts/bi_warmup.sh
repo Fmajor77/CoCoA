@@ -1,0 +1,21 @@
+torchrun --nproc_per_node=8 --master_port=22467 bi_warmup.py \
+  --model_name \
+  --bf16 \
+  --pooling last \
+  --lora \
+  --dataset_name ./train/MMEB-stage1 \
+  --num_sample_per_subset 20000 \
+  --image_dir ./train \
+  --max_len 4096 \
+  --output_dir ./output \
+  --logging_steps 1 \
+  --lr_scheduler_type linear \
+  --learning_rate 2e-5 \
+  --max_steps 3000 \
+  --warmup_steps 100 \
+  --save_steps 1000 \
+  --per_device_train_batch_size 16 \
+  --gradient_accumulation_steps 1 \
+  --save_safetensors False \
+  --remove_unused_columns False \
+  --report_to none

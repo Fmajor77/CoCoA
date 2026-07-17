@@ -1,0 +1,19 @@
+torchrun --nproc_per_node=8 --master_port=22889 --max_restarts=0 cl_train.py \
+  --model_name \
+  --output_dir ./output \
+  --bf16 --pooling last \
+  --insert_eos True \
+  --eos_token_id \
+  --lora --lora_r 8 \
+  --report_to none \
+  --is_casual False \
+  --dataset_name \
+  --subset_name ImageNet_1K N24News HatefulMemes VOC2007 SUN397 OK-VQA A-OKVQA DocVQA InfographicsVQA ChartQA Visual7W VisDial CIRR VisualNews_i2t VisualNews_t2i MSCOCO_i2t MSCOCO_t2i NIGHTS WebQA MSCOCO \
+  --num_sample_per_subset 100000 \
+  --image_dir \
+  --max_len 4096 --logging_steps 1 \
+  --lr_scheduler_type linear --learning_rate 2e-5 --max_steps 2000 \
+  --warmup_steps 200 --save_steps 500 --normalize True \
+  --temperature 0.02 --per_device_train_batch_size 128 \
+  --grad_cache True --gc_q_chunk_size 8 --gc_p_chunk_size 8 \
+  --save_total_limit 3 

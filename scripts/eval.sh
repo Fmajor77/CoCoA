@@ -1,0 +1,16 @@
+torchrun --nproc_per_node=8 --master_port=29505 eval.py \
+  --model_name \
+  --checkpoint_path \
+  --pooling last --normalize True \
+  --lora True \
+  --num_crops 16 --max_len 4096 \
+  --insert_eos True \
+  --eos_token_id \
+  --is_casual False \
+  --dataset_name ./eval/MMEB \
+  --subset_name A-OKVQA CIRR ChartQA Country211 DocVQA EDIS FashionIQ GQA ImageNet-1K ImageNet-A ImageNet-R InfographicsVQA MSCOCO MSCOCO_i2t MSCOCO_t2i N24News NIGHTS OK-VQA OVEN ObjectNet Place365 RefCOCO-Matching RefCOCO SUN397 ScienceQA TextVQA VOC2007 VisDial Visual7W-Pointing Visual7W VisualNews_i2t VisualNews_t2i VizWiz WebQA Wiki-SS-NQ \
+  --dataset_split test \
+  --per_device_eval_batch_size 4 \
+  --image_dir ./eval/images/ \
+  --image_resolution mid \
+  --encode_output_path ./outputs

@@ -1,0 +1,21 @@
+torchrun --nproc_per_node=8 --master_port=32698 eos_bridged.py \
+  --model_name  \
+  --checkpoint_path \
+  --dataset_name \
+  --image_dir ./train \
+  --max_len 4096 \
+  --output_dir ./output \
+  --per_device_train_batch_size 8 \
+  --report_to none \
+  --learning_rate 2e-5 \
+  --warmup_steps 100 \
+  --logging_steps 1 \
+  --lr_scheduler_type linear \
+  --num_train_epochs 2 \
+  --save_steps 3000 \
+  --mask_probability 0.7 \
+  --bf16 \
+  --lora \
+  --gradient_accumulation_steps 1 \
+  --save_safetensors False \
+  --remove_unused_columns False
