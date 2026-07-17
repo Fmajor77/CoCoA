@@ -1,4 +1,11 @@
 # CoCoA: Reconstructing Content with Collaborative Attention for Universal Multimodal Representation Learning
+<div align="left"> 
+
+[![Paper](https://img.shields.io/badge/Paper-arXiv-b31b1b.svg?logo=arxiv)](https://arxiv.org/abs/2603.01471)
+[![Github](https://img.shields.io/badge/github-repo-blue?logo=github
+)](https://github.com/Fmajor77/CoCoA)
+</div>
+
 ## Introduction
 Multimodal embedding models, rooted in multimodal large language models (MLLMs), have yielded significant performance improvements across diverse tasks such as retrieval and classification. However, most existing approaches rely heavily on large-scale contrastive learning and offer limited exploration of how the architectural and training paradigms of MLLMs affect embedding quality.
 While effective for generation, the causal attention and next-token prediction paradigm of MLLMs does not explicitly encourage the formation of globally compact representations, limiting their effectiveness as multimodal embedding backbones. To address this, we propose CoCoA, a Content reconstruction pre-training paradigm based on Collaborative Attention for universal multimodal representation learning. Specifically, we restructure the attention flow and introduce an EOS-based reconstruction task, encouraging the model to reconstruct input from the corresponding <EOS> embeddings. This drives the multimodal model to compress the semantic information of the input into the <EOS> token, laying the foundations for subsequent contrastive learning.
